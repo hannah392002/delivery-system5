@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام دليفري المكتبة</title>
 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <h1>📚 نظام دليفري المكتبة</h1>
+    <p>إدارة طلبات الحجز والطباعة</p>
+</header>
+
+<main>
+
+<section class="customer-card">
+
+<h2>بيانات العميل</h2>
+
+<div class="grid">
+
+<div>
+<label>رقم الطلب</label>
+<input id="orderNumber" type="text" readonly>
+</div>
+
+<div>
+<label>اسم العميل</label>
+<input id="customerName" type="text">
+</div>
+
+<div>
+<label>رقم التواصل الأول</label>
+<input id="phone1" type="text">
+</div>
+
+<div>
+<label>رقم التواصل الثاني</label>
+<input id="phone2" type="text">
+</div>
+
+<div class="full">
+<label>العنوان</label>
+<input id="address" type="text">
+</div>
+
+</div>
+
+<h2>الكتب</h2>
+
+<div id="booksContainer">
+
+</div>
+
+<button id="addBookBtn">
+➕ إضافة كتاب
+</button>
+
+<br><br>
+
+<button id="saveBtn">
+💾 حفظ الطلب
+</button>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>الطلبات</h2>
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔍 بحث">
+
+<table id="ordersTable">
+
+<thead>
+
+<tr>
+
+<th>✔</th>
+
+<th>رقم الطلب</th>
+
+<th>الاسم</th>
+
+<th>التليفون</th>
+
+<th>عدد الكتب</th>
+
+<th>الحالة</th>
+
+<th>تعديل</th>
+
+<th>حذف</th>
+
+<th>طباعة</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
