@@ -1,111 +1,101 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام دليفري المكتبة</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="print.css">
+<meta charset="UTF-8">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Library Delivery System</title>
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0d6efd">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="print.css" media="print">
+
 </head>
 
 <body>
 
 <header>
-    <h1>📚 نظام دليفري المكتبة</h1>
-    <p>إدارة طلبات الحجز والطباعة</p>
+
+<h1>📚 Library Delivery System</h1>
+
+<p>نظام دليفري المكتبة</p>
+
 </header>
 
-<main>
+<div class="container">
 
-<section class="customer-card">
+<div class="card">
 
 <h2>بيانات العميل</h2>
 
 <div class="grid">
 
 <div>
-<label>رقم الطلب</label>
-<input id="orderNumber" type="text" readonly>
-</div>
 
-<div>
 <label>اسم العميل</label>
+
 <input id="customerName" type="text">
+
 </div>
 
 <div>
-<label>رقم التواصل الأول</label>
-<input id="phone1" type="text">
+
+<label>رقم الموبايل الأول</label>
+
+<input id="phone1" type="tel">
+
 </div>
 
 <div>
-<label>رقم التواصل الثاني</label>
-<input id="phone2" type="text">
+
+<label>رقم الموبايل الثاني</label>
+
+<input id="phone2" type="tel">
+
 </div>
 
-<div class="full">
+<div>
+
 <label>العنوان</label>
-<input id="address" type="text">
+
+<textarea id="address"></textarea>
+
 </div>
 
 </div>
+
+</div>
+
+<div class="card">
+
+<div class="titleRow">
 
 <h2>الكتب</h2>
 
-<div id="booksContainer">
+<button id="addBookBtn">➕ إضافة كتاب</button>
 
 </div>
 
-<button id="addBookBtn">
-➕ إضافة كتاب
-</button>
-
-<br><br>
-
-<button id="saveBtn">
-💾 حفظ الطلب
-</button>
-
-</section>
-
-<hr>
-
-<section>
-
-<h2>الطلبات</h2>
-
-<input
-id="searchInput"
-type="text"
-placeholder="🔍 بحث">
-
-<table id="ordersTable">
+<table id="booksTable">
 
 <thead>
 
 <tr>
 
-<th>✔</th>
+<th>اسم الكتاب</th>
 
-<th>رقم الطلب</th>
+<th>عدد النسخ</th>
 
-<th>الاسم</th>
+<th>رقم الحجز</th>
 
-<th>التليفون</th>
-
-<th>عدد الكتب</th>
-
-<th>الحالة</th>
-
-<th>تعديل</th>
-
-<th>حذف</th>
-
-<th>طباعة</th>
+<th></th>
 
 </tr>
 
@@ -117,11 +107,102 @@ placeholder="🔍 بحث">
 
 </table>
 
-</section>
+</div>
 
-</main>
+<div class="buttons">
+
+<button id="saveBtn">
+
+💾 حفظ الطلب
+
+</button>
+
+<button id="clearBtn">
+
+🗑️ جديد
+
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="titleRow">
+
+<h2>البحث</h2>
+
+<input id="searchInput"
+
+placeholder="ابحث بالاسم أو الهاتف أو رقم الطلب">
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>جميع الطلبات</h2>
+
+<div id="ordersContainer"></div>
+
+</div>
+
+</div>
+
+<template id="bookRowTemplate">
+
+<tr>
+
+<td>
+
+<input class="bookName">
+
+</td>
+
+<td>
+
+<input class="bookQty"
+
+type="number"
+
+value="1"
+
+min="1">
+
+</td>
+
+<td>
+
+<input class="bookReserve">
+
+</td>
+
+<td>
+
+<button class="removeBook">
+
+❌
+
+</button>
+
+</td>
+
+</tr>
+
+</template>
 
 <script src="script.js"></script>
 
+<script>
+
+if('serviceWorker' in navigator){
+
+navigator.serviceWorker.register('sw.js');
+
+}
+
+</script>
+
 </body>
+
 </html>
